@@ -1,0 +1,44 @@
+{
+    "name": "huying/rong-lian",
+    "description": "容联云通讯SDK",
+    "keywords": [
+        "RongLian",
+        "容联",
+        "云通讯"
+    ],
+    "homepage": "https://github.com/echo58/RongLian",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Xujian Chen",
+            "email": "xjchen@echo58.com",
+            "homepage": "https://github.com/xjchengo",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Huying\\RongLian\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Huying\\RongLian\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

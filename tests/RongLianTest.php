@@ -100,7 +100,6 @@ class RongLianTest extends TestCase
      */
     public function testGetFlowRechargeStatus($rechargeResult)
     {
-        echo $rechargeResult['rechargeId'].' '.$rechargeResult['customId'];
         $result = $this->rongLian->getFlowRechargeStatus($rechargeResult['rechargeId']);
         $this->assertArrayHasKey('statusCode', $result);
         $this->assertEquals('000000', $result['statusCode']);
@@ -108,8 +107,6 @@ class RongLianTest extends TestCase
         $result = $this->rongLian->getFlowRechargeStatus(null, $rechargeResult['customId']);
         $this->assertArrayHasKey('statusCode', $result);
         $this->assertEquals('000000', $result['statusCode']);
-
-        $this->rongLian->getFlowRechargeStatus();
     }
 
     /**

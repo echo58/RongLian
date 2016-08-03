@@ -120,6 +120,7 @@ class RongLian
      * @param array $query
      * @param array $options
      * @return array
+     * @throws \Huying\RongLian\RongLianException
      */
     public function get($uri, array $query = [], array $options = [])
     {
@@ -130,7 +131,12 @@ class RongLian
         $response = $this->httpClient->get($uri, $options);
         $this->setResponse($response);
 
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        $result = \GuzzleHttp\json_decode($response->getBody(), true);
+        if ($result['statusCode'] !== '000000') {
+            throw new RongLianException($result);
+        }
+
+        return $result;
     }
 
     /**
@@ -139,6 +145,7 @@ class RongLian
      * @param array $json
      * @param array $options
      * @return array
+     * @throws \Huying\RongLian\RongLianException
      */
     public function post($uri, array $json = [], array $options = [])
     {
@@ -149,7 +156,12 @@ class RongLian
         $response = $this->httpClient->post($uri, $options);
         $this->response = $response;
 
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        $result = \GuzzleHttp\json_decode($response->getBody(), true);
+        if ($result['statusCode'] !== '000000') {
+            throw new RongLianException($result);
+        }
+
+        return $result;
     }
 
     /**
